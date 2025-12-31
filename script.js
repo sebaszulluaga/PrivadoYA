@@ -1,39 +1,6 @@
-// Language handling
-let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('es') ? 'es' : 'en');
-
-function setLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-
-    // Update all elements with data attributes
-    document.querySelectorAll('[data-es], [data-en]').forEach(el => {
-        const text = el.getAttribute(`data-${lang}`);
-        if (text) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = text;
-            } else {
-                el.textContent = text;
-            }
-        }
-    });
-
-    // Update active language button
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.getElementById(`lang-${lang}`).classList.add('active');
-
-    // Update document lang attribute
-    document.documentElement.lang = lang;
-}
-
-// Initialize language on page load
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    setLanguage(currentLang);
-
-    // Language switch buttons
-    document.getElementById('lang-es').addEventListener('click', () => setLanguage('es'));
-    document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+    // No language switching needed
 });
 
 // Smooth scrolling for navigation links

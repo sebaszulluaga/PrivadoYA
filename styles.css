@@ -11,8 +11,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-    color: #ffffff;
+    background: #ffffff;
+    color: #333333;
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -22,9 +22,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: #007bff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
@@ -90,7 +89,7 @@ body {
 
 .brand-subtitle {
     font-size: 0.8em;
-    color: #00d4ff;
+    color: #ffffff;
     font-weight: 400;
 }
 
@@ -133,7 +132,7 @@ body {
 }
 
 .navbar-nav a:hover {
-    color: #00d4ff;
+    color: #ffffff;
 }
 
 .hamburger {
@@ -166,7 +165,7 @@ body {
 .hero {
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: #007bff;
     position: relative;
     overflow: hidden;
 }
@@ -192,7 +191,6 @@ body {
     font-weight: 700;
     margin-bottom: 10px;
     color: #ffffff;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     animation: fadeInUp 1s ease-out;
 }
 
@@ -206,13 +204,12 @@ body {
     font-size: 3em;
     margin-bottom: 20px;
     color: #ffffff;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
     animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 .hero p:last-of-type {
     font-size: 1.4em;
-    color: rgba(255, 255, 255, 0.9);
+    color: #ffffff;
     max-width: 700px;
     margin: 0 auto 40px;
     animation: fadeInUp 1s ease-out 0.6s both;
@@ -220,21 +217,21 @@ body {
 
 .btn {
     display: inline-block;
-    background: linear-gradient(45deg, #00d4ff, #090979);
+    background: #0056b3;
     color: #ffffff;
     padding: 15px 30px;
     text-decoration: none;
     font-weight: 600;
     border-radius: 50px;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 15px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 8px 15px rgba(0, 86, 179, 0.3);
     animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 .btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(0, 212, 255, 0.4);
-    background: linear-gradient(45deg, #090979, #00d4ff);
+    box-shadow: 0 15px 25px rgba(0, 86, 179, 0.4);
+    background: #004085;
 }
 
 .buy-btn {
@@ -266,14 +263,65 @@ body {
 section {
     padding: 80px 20px;
     position: relative;
+    text-align: center;
+}
+
+.problem, .solution, .service-card, form, .footer-content, .booking-card {
+    text-align: left;
+}
+
+#problem-solution .container {
+    display: flex;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.problem, .solution {
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.problem h2, .solution h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.problem p, .solution p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.problem ul, .solution ul {
+    list-style: none;
+    padding: 0;
+}
+
+.problem li, .solution li {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.problem i, .solution i {
+    color: #007bff;
+    margin-right: 10px;
+    font-size: 1.2em;
 }
 
 section h2 {
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 50px;
-    color: #00d4ff;
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    color: #007bff;
 }
 
 /* How It Works */
@@ -305,7 +353,7 @@ section h2 {
     display: inline-block;
     width: 60px;
     height: 60px;
-    background: linear-gradient(45deg, #00d4ff, #090979);
+    background: #007bff;
     color: #ffffff;
     border-radius: 50%;
     font-size: 2em;
@@ -315,13 +363,13 @@ section h2 {
 }
 
 .step h3 {
-    color: #00d4ff;
+    color: #007bff;
     margin-bottom: 15px;
     font-size: 1.5em;
 }
 
 .step p {
-    color: #cccccc;
+    color: #666666;
 }
 
 /* Trust Signals */
@@ -345,12 +393,12 @@ section h2 {
 
 .trust-item i {
     font-size: 2em;
-    color: #00d4ff;
+    color: #007bff;
     margin-bottom: 10px;
 }
 
 .trust-item h3 {
-    color: #ffffff;
+    color: #333333;
     font-size: 1.1em;
     margin: 0;
 }
@@ -372,7 +420,7 @@ section h2 {
 }
 
 .reviews p {
-    color: #cccccc;
+    color: #666666;
     margin: 0;
 }
 
@@ -383,13 +431,13 @@ section h2 {
 }
 
 .counter h2 {
-    color: #00d4ff;
+    color: #007bff;
     font-size: 2.5em;
     margin: 0;
 }
 
 .counter p {
-    color: #cccccc;
+    color: #666666;
     margin: 5px 0 0 0;
 }
 
@@ -400,6 +448,11 @@ section h2 {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.service-card.recommended {
+    border: 3px solid #007bff;
+    box-shadow: 0 8px 32px rgba(0, 123, 255, 0.3);
 }
 
 .service-card {
@@ -435,7 +488,7 @@ section h2 {
 }
 
 .service-card h3 {
-    color: #00d4ff;
+    color: #007bff;
     margin-bottom: 15px;
     font-size: 1.5em;
     display: flex;
@@ -448,7 +501,7 @@ section h2 {
 }
 
 .service-card p {
-    color: #cccccc;
+    color: #666666;
     margin-bottom: 20px;
 }
 
@@ -460,18 +513,193 @@ section h2 {
 
 .trust-message {
     font-size: 0.9em;
-    color: #00d4ff;
+    color: #007bff;
     margin-top: 10px;
     text-align: center;
     font-weight: 500;
 }
 
+.discount-banner {
+    text-align: center;
+    padding: 20px;
+    background: #e7f3ff;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.discount-banner p {
+    color: #007bff;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-card h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.cta-card p {
+    color: #666666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.trust-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.trust-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+}
+
+.trust-item i {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.trust-item h3 {
+    color: #333333;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.reach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reach-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.reach-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+}
+
+.reach-item i {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.reach-item h3 {
+    color: #333333;
+    font-size: 1.2em;
+    margin: 0;
+}
+/* Booking Trust Reach */
+#booking-trust-reach {
+    padding: 80px 20px;
+}
+.booking-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.booking-card {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.booking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.booking-card h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+.booking-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.booking-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+}
+.booking-card li {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}
+.booking-card i {
+    color: #007bff;
+    margin-right: 10px;
+    font-size: 1.2em;
+    min-width: 20px;
+}
+.large-btn {
+    padding: 20px 40px;
+    font-size: 1.2em;
+    font-weight: 700;
+}
 /* About and Contact */
 #about p, #contact p {
     max-width: 800px;
     margin: 0 auto 40px;
     text-align: center;
-    color: #cccccc;
+    color: #666666;
     font-size: 1.2em;
 }
 
@@ -495,13 +723,13 @@ input, textarea {
 }
 
 input::placeholder, textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: #999999;
 }
 
 input:focus, textarea:focus {
     outline: none;
-    border-color: #00d4ff;
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
 textarea {
@@ -511,9 +739,9 @@ textarea {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    background: #f8f9fa;
     padding: 40px 20px;
-    color: #cccccc;
+    color: #666666;
 }
 
 .footer-content {
@@ -525,7 +753,7 @@ footer {
 }
 
 .footer-section h3, .footer-section h4 {
-    color: #00d4ff;
+    color: #007bff;
     margin-bottom: 15px;
 }
 
@@ -545,7 +773,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #00d4ff;
+    color: #007bff;
 }
 
 .social-links {
@@ -560,7 +788,7 @@ footer {
 }
 
 .social-links a:hover {
-    color: #00d4ff;
+    color: #007bff;
 }
 
 .footer-bottom {
@@ -579,18 +807,18 @@ footer {
 
 .policy h1 {
     text-align: center;
-    color: #00d4ff;
+    color: #007bff;
     margin-bottom: 40px;
 }
 
 .policy-content h2 {
-    color: #00d4ff;
+    color: #007bff;
     margin-top: 30px;
     margin-bottom: 15px;
 }
 
 .policy-content p {
-    color: #cccccc;
+    color: #666666;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -616,6 +844,9 @@ footer {
         order: 3;
         margin: 10px 0 0 0;
         margin-right: 0;
+    }
+    .navbar-brand img {
+        height: 80px;
     }
     .navbar-nav {
         position: absolute;
@@ -673,8 +904,40 @@ footer {
     .services {
         grid-template-columns: 1fr;
     }
+    .booking-cards {
+        grid-template-columns: 1fr;
+    }
+    .booking-card {
+        padding: 20px;
+    }
+    #problem-solution .container {
+        flex-direction: column;
+        gap: 30px;
+    }
     .service-card {
         padding: 20px;
+    }
+    .discount-banner {
+        padding: 15px;
+        margin: 15px;
+    }
+    .discount-banner p {
+        font-size: 1em;
+    }
+    .cta-card {
+        padding: 30px;
+    }
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+    .reach-grid {
+        grid-template-columns: 1fr;
+    }
+    .trust-item, .reach-item {
+        padding: 20px;
+    }
+    .trust-item i, .reach-item i {
+        font-size: 2.5em;
     }
     .footer-content {
         grid-template-columns: 1fr;

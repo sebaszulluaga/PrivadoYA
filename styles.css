@@ -899,7 +899,7 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
-        padding-top: 75px; /* Adjust for navbar */
+        /* No padding for transparent navbar */
     }
     .navbar-container {
         flex-wrap: wrap;

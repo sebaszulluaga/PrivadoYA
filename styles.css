@@ -23,7 +23,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 75px;
+    height: 89px;
     z-index: 1000;
     background: #007bff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -231,7 +231,7 @@ body {
 }
 
 .btn:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05);
     box-shadow: 0 15px 25px rgba(0, 86, 179, 0.4);
     background: #004085;
 }
@@ -272,7 +272,7 @@ section {
     text-align: left;
 }
 
-#confianza .container {
+#problem-solution .container {
     display: flex;
     gap: 50px;
     max-width: 1200px;
@@ -344,11 +344,13 @@ section h2 {
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 .step:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+    background-color: rgba(0, 212, 255, 0.1);
 }
 
 .step-number {
@@ -452,18 +454,13 @@ section h2 {
     margin: 0 auto;
 }
 
-.service-card.recommended {
-    border: 3px solid #007bff;
-    box-shadow: 0 8px 32px rgba(0, 123, 255, 0.3);
-}
 
 .service-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -486,8 +483,9 @@ section h2 {
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
 }
 
 .service-card h3 {
@@ -556,6 +554,11 @@ section h2 {
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.cta-card:hover {
+    border: 3px solid #007bff;
 }
 
 .cta-card h2 {
@@ -586,11 +589,13 @@ section h2 {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     text-align: center;
     transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 .trust-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+    background-color: rgba(0, 212, 255, 0.1);
 }
 
 .trust-item i {
@@ -622,11 +627,13 @@ section h2 {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     text-align: center;
     transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 .reach-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+    background-color: rgba(0, 212, 255, 0.1);
 }
 
 .reach-item i {
@@ -701,10 +708,12 @@ section h2 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: all 0.3s ease;
+    background-color: transparent;
 }
 .booking-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 123, 255, 0.1);
 }
 .booking-card h3 {
     color: #007bff;
@@ -954,7 +963,7 @@ footer {
     .booking-card {
         padding: 20px;
     }
-    #confianza .container {
+    #problem-solution .container {
         flex-direction: column;
         gap: 30px;
     }
@@ -1020,6 +1029,4 @@ footer {
     section h2 {
         font-size: 2em;
     }
-
 }
-

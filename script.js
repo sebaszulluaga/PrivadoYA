@@ -95,7 +95,7 @@ particleStyle.textContent = `
 `;
 document.head.appendChild(particleStyle);
 
-// Navbar hide/show on scroll
+// Navbar hide/show and background on scroll
 let lastScrollTop = 0;
 window.addEventListener('scroll', function() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -106,6 +106,11 @@ window.addEventListener('scroll', function() {
     } else {
         // Scrolling up
         navbar.classList.remove('navbar-hidden');
+    }
+    if (scrollTop > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
 });

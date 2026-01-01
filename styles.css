@@ -272,7 +272,7 @@ section {
     text-align: left;
 }
 
-#problem-solution .container {
+#confianza .container {
     display: flex;
     gap: 50px;
     max-width: 1200px;
@@ -954,7 +954,7 @@ footer {
     .booking-card {
         padding: 20px;
     }
-    #problem-solution .container {
+    #confianza .container {
         flex-direction: column;
         gap: 30px;
     }

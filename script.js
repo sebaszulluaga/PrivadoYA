@@ -95,6 +95,21 @@ particleStyle.textContent = `
 `;
 document.head.appendChild(particleStyle);
 
+// Navbar hide/show on scroll
+let lastScrollTop = 0;
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const navbar = document.querySelector('.navbar');
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down and past 100px
+        navbar.classList.add('navbar-hidden');
+    } else {
+        // Scrolling up
+        navbar.classList.remove('navbar-hidden');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+});
+
 // Form submission handling (optional enhancement)
 document.querySelector('form').addEventListener('submit', function(e) {
     // You can add custom validation or loading state here

@@ -1012,7 +1012,7 @@ footer {
 
 @media (max-width: 480px) {
     body {
-        padding-top: 75px;
+        /* No padding for transparent navbar */
     }
     .testimonial p {
         font-size: 1em;

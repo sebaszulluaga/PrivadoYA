@@ -1,354 +1,1407 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrivadoYA | Protección de cuentas y privacidad digital</title>
-<meta name="description" content="PrivadoYA ofrece ciberseguridad personal en español para la comunidad hispanohablante en Estados Unidos. Protección de cuentas digitales, recuperación y eliminación de contenido sensible.">
-<meta property="og:title" content="PrivadoYA | Protección de cuentas y privacidad digital">
-<meta property="og:description" content="Ciberseguridad personal en español para hispanohablantes en EE.UU. Servicios remotos de protección y recuperación de cuentas.">
-<meta property="og:image" content="https://privadoya.com/logo.png">
-<meta property="og:url" content="https://privadoya.com">
-<meta property="og:type" content="website">
-<link rel="stylesheet" href="styles.css">
-<link rel="shortcut icon" href="logo.ico" />
-<!-- Calendly widget -->
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privado Ya | Domótica Avanzada & Ciberseguridad Residencial</title>
+    <meta name="description" content="Automatización inteligente del hogar, Bóveda Digital para cámaras y blindaje de redes Wi-Fi con cableado 100% Cobre Cat 6 OFC.">
+    
+    <!-- Link Logo Icon (Favicon) -->
+    <link rel="icon" type="image/jpeg" href="logonobackground.png">
+    <link rel="apple-touch-icon" href="logonobackground.png">
 
+    <!-- Tipografía Apple Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           VARIABLES & DESIGN SYSTEM (APPLE DARK MODE)
+           ========================================================================== */
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #070709;
+            --surface-card: #111115;
+            --surface-card-hover: #181820;
+            --surface-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 242, 254, 0.3);
+            
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --text-tertiary: #515154;
+            
+            --accent-cyan: #00f2fe;
+            --accent-blue: #2997ff;
+            --accent-green: #30d158;
+            --accent-red: #ff453a;
+            --accent-purple: #af52de;
+            
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --font-main: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.5;
+            letter-spacing: -0.015em;
+        }
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-black); }
+        ::-webkit-scrollbar-thumb { background: #222226; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #333339; }
+
+        /* ==========================================================================
+           NAVEGACIÓN GLASSMORPHIC
+           ========================================================================== */
+        .apple-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 68px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            z-index: 9999;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-container {
+            max-width: 1240px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo img {
+            height: 36px;
+            width: 36px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .btn-apple-pill {
+            background: var(--text-primary);
+            color: var(--bg-black);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-apple-pill:hover {
+            background: #ffffff;
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+        }
+
+        /* ==========================================================================
+           HERO SECTION CON VIDEO LOOP
+           ========================================================================== */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 130px 24px 70px;
+            overflow: hidden;
+        }
+
+        .video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.35) contrast(1.15);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, var(--bg-black) 90%),
+                        linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 40%, transparent 60%, var(--bg-black) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 980px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            border-radius: 980px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 28px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 6vw, 5.2rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin-bottom: 24px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #A1A1A6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 820px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-cyan {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+            color: #000000;
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 18px 40px;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.35);
+        }
+
+        .btn-primary-cyan:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 242, 254, 0.6);
+        }
+
+        .btn-secondary-glass {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 18px 36px;
+            border-radius: 980px;
+            text-decoration: none;
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-glass:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* ==========================================================================
+           SECCIÓN GENERAL & TYPOGRAPHY
+           ========================================================================== */
+        .section-padding {
+            padding: 120px 24px;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 70px;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+
+        .section-desc {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================================================
+           NOSOTROS (QUIÉNES SOMOS, MISIÓN, VISIÓN)
+           ========================================================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .about-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 44px 36px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+        }
+
+        .about-icon {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .about-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           ESTILO DE VIDA (PDF USE CASES)
+           ========================================================================== */
+        .lifestyle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 70px;
+        }
+
+        .lifestyle-card {
+            background: linear-gradient(180deg, var(--surface-card) 0%, rgba(17,17,21,0.5) 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .lifestyle-card:hover {
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-4px);
+        }
+
+        .lifestyle-card .tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .lifestyle-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.25;
+        }
+
+        .lifestyle-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           QUÉ NOS DIFERENCIA (BENTO GRID HIGH TECH)
+           ========================================================================== */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bento-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 30px rgba(0, 242, 254, 0.08);
+        }
+
+        .col-12 { grid-column: span 12; }
+        .col-8  { grid-column: span 8; }
+        .col-7  { grid-column: span 7; }
+        .col-5  { grid-column: span 5; }
+        .col-4  { grid-column: span 4; }
+
+        .bento-badge {
+            align-self: flex-start;
+            padding: 5px 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 980px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 24px;
+        }
+
+        .bento-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .bento-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .cable-tech-box {
+            margin-top: 32px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .tech-spec-item {
+            padding: 12px;
+            border-radius: var(--radius-md);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .tech-spec-item.good { border-left: 3px solid var(--accent-green); }
+        .tech-spec-item.bad { border-left: 3px solid var(--accent-red); }
+
+        .tech-spec-item span {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .tech-spec-item strong {
+            font-family: var(--font-display);
+            font-size: 1rem;
+        }
+
+        /* ==========================================================================
+           CATÁLOGO DE SERVICIOS COMPLETO
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 36px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: var(--surface-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .service-number {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.15);
+            margin-bottom: 16px;
+        }
+
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .service-list li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-list li::before {
+            content: "•";
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        .service-btn {
+            margin-top: 24px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 12px;
+        }
+
+        /* ==========================================================================
+           CALCULADORA DE SALUD DE RED Y DOMÓTICA
+           ========================================================================== */
+        .calc-wrapper {
+            background: linear-gradient(180deg, var(--surface-card) 0%, #08080a 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .calc-group {
+            margin-bottom: 20px;
+        }
+
+        .calc-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .calc-select {
+            width: 100%;
+            padding: 16px 20px;
+            background: #000000;
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .calc-select:focus { border-color: var(--accent-cyan); }
+
+        .calc-result-box {
+            background: #000000;
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 6px solid var(--accent-green);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.5s ease;
+        }
+
+        .score-num {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+
+        /* ==========================================================================
+           PLANES DE SERVICIO (PAQUETES SIN PRECIOS)
+           ========================================================================== */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .package-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
+            padding: 44px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .package-card.featured {
+            background: linear-gradient(180deg, rgba(0, 242, 254, 0.06) 0%, var(--surface-card) 100%);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 45px rgba(0, 242, 254, 0.15);
+        }
+
+        .package-card.featured::before {
+            content: "RECOMENDADO PRIVADO YA";
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-cyan);
+            color: #000000;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 18px;
+            border-radius: 980px;
+            letter-spacing: 0.08em;
+        }
+
+        .package-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .package-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            min-height: 42px;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .package-features li {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .package-features li svg {
+            flex-shrink: 0;
+            color: var(--accent-green);
+        }
+
+        /* ==========================================================================
+           PREGUNTAS FRECUENTES (FAQ)
+           ========================================================================== */
+        .faq-accordion {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--surface-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .faq-header {
+            width: 100%;
+            padding: 24px 30px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-icon { transition: transform 0.3s ease; color: var(--text-secondary); }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            padding: 0 30px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-body {
+            max-height: 500px;
+            padding-bottom: 24px;
+            transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+        }
+
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--accent-cyan); }
+
+        /* ==========================================================================
+           FOOTER APPLE-STYLE
+           ========================================================================== */
+        .apple-footer {
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-glass);
+            padding: 70px 24px 40px;
+            color: var(--text-tertiary);
+            font-size: 0.8rem;
+        }
+
+        .footer-container { max-width: 1240px; margin: 0 auto; }
+        .footer-legal { padding-bottom: 28px; border-bottom: 1px solid var(--border-glass); margin-bottom: 36px; line-height: 1.6; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h5 { color: var(--text-primary); font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-col a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--text-primary); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN (MOBILE & TABLET)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .about-grid, .lifestyle-grid, .services-grid, .packages-grid { grid-template-columns: 1fr; }
+            .col-8, .col-7, .col-5, .col-4 { grid-column: span 12; }
+            .calc-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .cable-tech-box { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-section { padding-top: 110px; }
+            .bento-card { padding: 28px; }
+            .calc-wrapper { padding: 24px; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-brand">
-        <img src="logo.png" alt="PrivadoYA Logo">
-      </div>
-      <ul class="navbar-nav" id="nav-menu">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#confianza">Nosotros</a></li>
-        <li><a href="#testimonials">Testimonios</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<section class="hero">
-      <video autoplay muted loop playsinline id="hero-video">
-        <source src="video.mp4" type="video/mp4">
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1>¡Hola! Bienvenido a PrivadoYA</h1>
-        <a href="mailto:soporte@privadoya.com" class="btn">Contáctanos</a>
-      </div>
-</section>
-
-<section id="problem-solution">
-    <div class="container">
-        <div class="problem">
-            <h2>¿Tu celular y tus cuentas están realmente seguros?</h2>
-            <p>Esto pasa todos los días a la comunidad hispana en EE. UU.</p>
-            <ul>
-                <li><i class="fas fa-mobile-alt"></i> Robo de WhatsApp</li>
-                <li><i class="fas fa-mobile-alt"></i> Pérdida o Robo de Celular</li>
-                <li><i class="fas fa-user-secret"></i> Suplantación de identidad</li>
-                <li><i class="fas fa-camera"></i> Filtración de contenido sensible</li>
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="apple-nav">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <img src="logonobackground.png" alt="Privado Ya Icono Logo">
+                <span class="brand-name">Privado Ya</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#nosotros">Quiénes Somos</a></li>
+                <li><a href="#estilo-de-vida">Experiencias</a></li>
+                <li><a href="#diferenciales">Diferenciadores</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
+
+            <a href="https://wa.me/573000000000?text=Hola,%20deseo%20cotizar%20un%20proyecto%20de%20dom%C3%B3tica%20y%20blindaje%20de%20red%20con%20Privado%20Ya." target="_blank" class="btn-apple-pill">
+                <span>Cotizar por WhatsApp</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </div>
-        <div class="solution">
-            <h2>En PrivadoYA recuperas el control.</h2>
-            <ul>
-                <li><i class="fas fa-shield-alt"></i> Blindaje de Dispositivos (Anti-Pánico)</li>
-                <li><i class="fas fa-eye"></i> Protección de Cuentas Personales</li>
-                <li><i class="fas fa-undo"></i> Gestión de Privacidad y Reputación</li>
-            </ul>
+    </nav>
+
+    <!-- HERO SECTION CON VIDEO DE FONDO -->
+    <section class="hero-section">
+        <div class="video-wrapper">
+            <video autoplay muted loop playsinline id="heroBgVideo">
+                <source src="Video Loop inicio.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
         </div>
-    </div>
-</section>
 
-<section id="how-it-works">
-    <h2>Cómo funciona</h2>
-    <div class="steps">
-        <div class="step">
-            <div class="step-number">1</div>
-            <h3>Escoge el servicio</h3>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Domótica de Alta Gama & Ciberseguridad Defensiva en Cali
+            </div>
+            
+            <h1 class="hero-title">Tu casa, más inteligente<br>y segura que nunca.</h1>
+            
+            <p class="hero-subtitle">
+                Diseñamos el estilo de vida que mereces: automatización del clima, iluminación por voz y cerraduras inteligentes, respaldadas por una "Bóveda Digital" de red y cableado Dahua Cat 6 100% Cobre.
+            </p>
+
+            <div class="hero-actions">
+                <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20cotizar%20la%20automatizaci%C3%B3n%20y%20blindaje%20de%20mi%20hogar." target="_blank" class="btn-primary-cyan">
+                    Cotizar Proyecto por WhatsApp
+                </a>
+                <a href="#estilo-de-vida" class="btn-secondary-glass">
+                    Ver Experiencias de Hogar
+                </a>
+            </div>
         </div>
-        <div class="step">
-            <div class="step-number">2</div>
-            <h3>Reserva tu cita</h3>
+    </section>
+
+    <!-- QUIÉNES SOMOS, MISIÓN Y VISIÓN -->
+    <section id="nosotros" class="section-padding">
+        <div class="section-header">
+            <span class="section-tag">Nuestra Identidad</span>
+            <h2 class="section-title">Ingeniería en Domótica con Ciberseguridad por Diseño.</h2>
+            <p class="section-desc">Cualquiera puede conectar un bombillo o un router comercial; nosotros blindamos tu hogar y convertimos tu espacio en un ecosistema inteligente, privado e inexpugnable.</p>
         </div>
-        <div class="step">
-            <div class="step-number">3</div>
-            <h3>Paga de forma segura con Stripe</h3>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <span class="about-icon">🛡️</span>
+                <h3>Quiénes Somos</h3>
+                <p>Somos una firma de ingeniería en automatización residencial y ciberseguridad local. Integramos dispositivos de automatización (Aires, Luces, Cerraduras, Cámaras) sobre una infraestructura física y lógica blindada bajo el principio <i>Cybersecurity by Design</i>.</p>
+            </div>
+
+            <div class="about-card">
+                <span class="about-icon">🎯</span>
+                <h3>Nuestra Misión</h3>
+                <p>Brindar la máxima comodidad, control y tranquilidad a las familias, garantizando que sus cámaras, micrófonos y datos personales estén 100% aislados contra intrusos, ciberataques o miradas indiscretas en Internet.</p>
+            </div>
+
+            <div class="about-card">
+                <span class="about-icon">🚀</span>
+                <h3>Nuestra Visión</h3>
+                <p>Consolidarnos como el estándar líder de domótica privada en Cali y Colombia, donde el confort del hogar inteligente convive de manera indivisible con la más alta ciberseguridad defensiva.</p>
+            </div>
         </div>
-        <div class="step">
-            <div class="step-number">4</div>
-            <h3>Recibe el link automático de la llamada</h3>
+    </section>
+
+    <!-- ESTILO DE VIDA & CASOS DE USO (CONTENIDO PDF INTEGRADO) -->
+    <section id="estilo-de-vida" class="section-padding" style="padding-top: 0;">
+        <div class="section-header">
+            <span class="section-tag">El Estilo de Vida que Mereces</span>
+            <h2 class="section-title">Experiencias creadas para tu día a día.</h2>
+            <p class="section-desc">Transformamos las tareas cotidianas en momentos de confort automático e ininterrumpido.</p>
         </div>
-        <div class="step">
-            <div class="step-number">5</div>
-            <h3>Atención remota y solución</h3>
+
+        <div class="lifestyle-grid">
+            <div class="lifestyle-card">
+                <span class="tag">Confort Térmico</span>
+                <h3>El Clima Perfecto, Siempre</h3>
+                <p>Se acabó llegar a derretirte por el calor. Con un solo toque en tu celular o de forma automatizada, enciende tu aire acondicionado 15 minutos antes de llegar. Abre la puerta y respira un ambiente perfectamente fresco.</p>
+            </div>
+
+            <div class="lifestyle-card">
+                <span class="tag">Tranquilidad Familiar</span>
+                <h3>Paz Mental con tus Hijos</h3>
+                <p>¿Tus niños se quedan solos en casa? Recibe una alerta inmediata a tu celular en el instante exacto en que alguien abre la puerta principal o alguna ventana. Control y supervisión estés donde estés.</p>
+            </div>
+
+            <div class="lifestyle-card">
+                <span class="tag">Rutinas Inteligentes</span>
+                <h3>Modo "Noche de Cine"</h3>
+                <p>Ya estás en pijama. Simplemente di: <i>"Alexa, Buenas noches"</i> a tu asistente de voz. En automático, las luces de la sala se atenúan, la TV se enciende en tu plataforma favorita y las cerraduras se aseguran. Sin levantarte.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="services">
-     <h2>Servicios</h2>
-     <div class="services">
+    <!-- QUÉ NOS DIFERENCIA (BENTO GRID HIGH TECH) -->
+    <section id="diferenciales" class="section-padding" style="padding-top: 0;">
+        <div class="section-header">
+            <span class="section-tag">Ventaja Competitiva</span>
+            <h2 class="section-title">Por qué somos diferentes.</h2>
+            <p class="section-desc">Detalles de ingeniería que diferencian una instalación aficionada de una arquitectura profesional.</p>
+        </div>
 
-    <div class="service-card">
-      <h3>🟢 Protección de Cuentas – $49</h3>
-      <p>Protegemos tus cuentas más importantes para evitar robos.</p>
-      <a href="https://calendly.com/privadoya/protecciondecuentas"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn">
-          Reservar ahora
-      </a>
-    </div>
+        <div class="bento-grid">
+            
+            <!-- Bento Card 1: Bóveda Digital -->
+            <div class="bento-card col-7">
+                <div>
+                    <span class="bento-badge">NUESTRO SECRETO DE SEGURIDAD</span>
+                    <h3>Bóveda Digital para Cámaras & IoT</h3>
+                    <p>Aislamos tus cámaras de seguridad, cerraduras y asistentes de voz dentro de una zona VLAN independiente ("Bóveda Digital"). Nadie, nunca, podrá espiarte por Internet ni utilizar un dispositivo de domótica como puerta de entrada para hackear tus computadores personales o bancarios.</p>
+                </div>
+            </div>
 
-    <div class="service-card recommended">
-      <h3>🔵 Protección Completa – $89 (Recomendado)</h3>
-      <p>Blindamos tu celular y tus cuentas con asesoría personalizada.</p>
-      <a href="https://calendly.com/privadoya/proteccioncompleta"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn">
-         Reservar ahora
-      </a>
-    </div>
+            <!-- Bento Card 2: Hardening -->
+            <div class="bento-card col-5">
+                <div>
+                    <span class="bento-badge">HARDENING DEFENSIVO</span>
+                    <h3>Cero Puertos Expuestos</h3>
+                    <p>Desactivamos botones WPS vulnerables, cerramos protocolos UPnP y bloqueamos accesos remotos WAN. Tu red se vuelve completamente invisible para escáneres maliciosos de la calle o de la web.</p>
+                </div>
+            </div>
 
-    <div class="service-card">
-      <h3>🔷 Blindaje Digital Anti-Pánico – $69</h3>
-      <p>Configuración de recuperación y simulacro. Evita perder tu identidad digital si pierdes tu celular.</p>
-      <a href="#"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn">
-         Ver Blindaje
-      </a>
-    </div>
+            <!-- Bento Card 3: Cobre OFC -->
+            <div class="bento-card col-8">
+                <div>
+                    <span class="bento-badge">MATERIALES DE ALTA FIDELIDAD</span>
+                    <h3>Cobre 100% Puro Dahua (OFC) Cat 6</h3>
+                    <p>Rechazamos los cables planos y el aluminio bañado en cobre (CCA) que se sulfatan. Usamos exclusivamente cableado **Dahua Cat 6 100% Cobre Libre de Oxígeno**, ponchado bajo norma internacional **T568B** con conectores guiados.</p>
+                </div>
+                
+                <div class="cable-tech-box">
+                    <div class="tech-spec-item bad">
+                        <span>Cables Genéricos / CCA</span>
+                        <strong>Pérdida de Señal & Oxidación Rápida</strong>
+                    </div>
+                    <div class="tech-spec-item good">
+                        <span>Privado Ya / Dahua Cat 6 OFC</span>
+                        <strong>100% Conductividad & Cero Pérdida de Paquetes</strong>
+                    </div>
+                </div>
+            </div>
 
-    <div class="service-card">
-      <h3>🔴 Emergencia – Cuenta Robada – desde $149</h3>
-      <p>Atención prioritaria para gestión de recuperación de cuentas robadas.</p>
-      <a href="https://calendly.com/privadoya/emergencia"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn">
-      Reservar ahora
-      </a>
-    </div>
+            <!-- Bento Card 4: DNS Shield -->
+            <div class="bento-card col-4">
+                <div>
+                    <span class="bento-badge">PROTECCIÓN DNS</span>
+                    <h3>DNS Shield Integrado</h3>
+                    <p>Filtramos el tráfico del router a nivel de dominio (Cloudflare / Quad9), bloqueando virus, sitios de suplantación de identidad (Phishing) y anuncios maliciosos automáticamente.</p>
+                </div>
+            </div>
 
-    <div class="service-card">
-      <h3>🔍 Gestión de Privacidad y Reputación</h3>
-      <p>Análisis de viabilidad y gestión de solicitudes para dar de baja contenido sensible, perfiles falsos o suplantación. Se evalúa caso por caso.</p>
-      <a href="https://buy.stripe.com/dRmcN5etBdMQ1NyakH7Re07"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn">
-         Solicitar Evaluación
-      </a>
-    </div>
+        </div>
+    </section>
 
-  </div>
+    <!-- CATÁLOGO COMPLETO DE SERVICIOS -->
+    <section id="servicios" class="section-padding">
+        <div class="section-header">
+            <span class="section-tag">Portafolio Integral</span>
+            <h2 class="section-title">Todos nuestros servicios.</h2>
+            <p class="section-desc">Instalación, configuración y blindaje a la medida para tu hogar u oficina.</p>
+        </div>
 
-     <div class="discount-banner">
-         <p>🎉 Nuevo usuario: obtén 15 % de descuento en tu primera cita con el código NEWUSER15%OFF</p>
-     </div>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div>
+                    <div class="service-number">01</div>
+                    <h3 class="service-title">Cerraduras Inteligentes</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Montaje físico en puerta, calibración de huella digital, códigos de acceso numéricos, tarjetas RFID y apertura remota vía App.</p>
+                    <ul class="service-list">
+                        <li>Creación de claves temporales para visitas</li>
+                        <li>Notificación de apertura en tiempo real</li>
+                        <li>Aislamiento de la App contra hackeos</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20deseo%20cotizar%20la%20instalaci%C3%B3n%20de%20una%20Cerradura%20Inteligente." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-   
-</section>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">02</div>
+                    <h3 class="service-title">Cámaras Wi-Fi & Bóveda Digital</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Fijación limpia sin dañar paredes, grabación local/nube y segmentación en Bóveda Digital para 100% de privacidad defensiva.</p>
+                    <ul class="service-list">
+                        <li>Protección contra espionaje en Internet</li>
+                        <li>Detección de movimiento e infrarrojo</li>
+                        <li>Configuración de alertas instantáneas</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20deseo%20cotizar%20la%20instalaci%C3%B3n%20de%20C%C3%A1maras%20Wi-Fi%20con%20B%C3%B3veda%20Digital." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-<section id="booking">
-      <div class="cta-card">
-          <h2>Reserva Tu Cita</h2>
-          <p>Elige el servicio que necesitas y selecciona un horario disponible. El pago se procesa automáticamente al confirmar.</p>
-          <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/privadoya/proteccioncompleta'});return false;" class="btn">Reservar ahora</a>
-      </div>
-</section>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">03</div>
+                    <h3 class="service-title">Controladores Universales IR</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Convierte tu smartphone o voz en el único mando a distancia para encender aires acondicionados, televisores y equipos de sonido.</p>
+                    <ul class="service-list">
+                        <li>Encendido previo de Aire Acondicionado</li>
+                        <li>Eliminación de controles remotos físicos</li>
+                        <li>Programación por horarios y temperatura</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20quiero%20cotizar%20un%20Controlador%20Universal%20para%20Aire/TV." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-<section id="confianza">
-     <h2>Confianza y Seguridad</h2>
-     <p>En PrivadoYA protegemos a la comunidad hispanohablante en Estados Unidos contra robos digitales y estafas. Ofrecemos seguridad para tus cuentas de WhatsApp, Instagram, correo electrónico y otras cuentas personales.</p>
-     <p>Nuestro servicio es 100 % remoto, en español y con atención rápida, para que tengas tranquilidad y respaldo inmediato ante cualquier amenaza digital.</p>
-     <div class="trust-grid">
-         <div class="trust-item">
-             <i class="fas fa-shield-alt"></i>
-             <h3>No solicitamos contraseñas</h3>
-         </div>
-         <div class="trust-item">
-             <i class="fab fa-stripe"></i>
-             <h3>Pagos seguros con Stripe</h3>
-         </div>
-         <div class="trust-item">
-             <i class="fas fa-comments"></i>
-             <h3>Atención 100 % en español</h3>
-         </div>
-         <div class="trust-item">
-             <i class="fas fa-user-tie"></i>
-             <h3>Servicio personalizado</h3>
-         </div>
-     </div>
-   </section>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">04</div>
+                    <h3 class="service-title">Asistentes de Voz & Rutinas</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Integración total de Alexa o Google Home. Vinculación con todos los dispositivos de la casa y creación de escenas automatizadas.</p>
+                    <ul class="service-list">
+                        <li>Creación de escena "Buenas Noches"</li>
+                        <li>Modo "Cine" y "Salir de Casa"</li>
+                        <li>Comandos de voz personalizados</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20deseo%20configurar%20mi%20Asistente%20de%20Voz%20y%20Rutinas." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-   <section id="testimonials">
-     <h2>Testimonios</h2>
-     <div class="carousel">
-       <div class="carousel-inner">
-         <div class="testimonial">
-           <p>"PrivadoYA me ayudó a recuperar mi cuenta de Instagram en menos de 24 horas. Servicio profesional y confiable."</p>
-           <span>- María G., Nueva York</span>
-         </div>
-         <div class="testimonial">
-           <p>"Excelente atención al cliente. Me explicaron todo el proceso y solucionaron mi problema de WhatsApp hackeado."</p>
-           <span>- Carlos R., Los Ángeles</span>
-         </div>
-         <div class="testimonial">
-           <p>"Recomiendo PrivadoYA a todos mis amigos. Precios justos y resultados garantizados."</p>
-           <span>- Ana L., Miami</span>
-         </div>
-         <div class="testimonial">
-           <p>"Me salvaron de una estafa digital. Rápidos, seguros y en español. ¡Gracias PrivadoYA!"</p>
-           <span>- José M., Chicago</span>
-         </div>
-         <div class="testimonial">
-           <p>"Protección completa para mi celular y cuentas. Ahora duermo tranquilo sabiendo que estoy seguro."</p>
-           <span>- Laura P., Houston</span>
-         </div>
-         <div class="testimonial">
-           <p>"Servicio de emergencia excepcional. Recuperaron mi cuenta robada en tiempo récord."</p>
-           <span>- Roberto S., Phoenix</span>
-         </div>
-         <!-- Duplicated for infinite loop -->
-         <div class="testimonial">
-           <p>"PrivadoYA me ayudó a recuperar mi cuenta de Instagram en menos de 24 horas. Servicio profesional y confiable."</p>
-           <span>- María G., Nueva York</span>
-         </div>
-         <div class="testimonial">
-           <p>"Excelente atención al cliente. Me explicaron todo el proceso y solucionaron mi problema de WhatsApp hackeado."</p>
-           <span>- Carlos R., Los Ángeles</span>
-         </div>
-         <div class="testimonial">
-           <p>"Recomiendo PrivadoYA a todos mis amigos. Precios justos y resultados garantizados."</p>
-           <span>- Ana L., Miami</span>
-         </div>
-         <div class="testimonial">
-           <p>"Me salvaron de una estafa digital. Rápidos, seguros y en español. ¡Gracias PrivadoYA!"</p>
-           <span>- José M., Chicago</span>
-         </div>
-         <div class="testimonial">
-           <p>"Protección completa para mi celular y cuentas. Ahora duermo tranquilo sabiendo que estoy seguro."</p>
-           <span>- Laura P., Houston</span>
-         </div>
-         <div class="testimonial">
-           <p>"Servicio de emergencia excepcional. Recuperaron mi cuenta robada en tiempo récord."</p>
-           <span>- Roberto S., Phoenix</span>
-         </div>
-       </div>
-     </div>
-   </section>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">05</div>
+                    <h3 class="service-title">Sensores de Seguridad & Emergencia</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Instalación y calibración estratégica de sensores para puertas, ventanas, humo, fugas de gas y alertas de inundación.</p>
+                    <ul class="service-list">
+                        <li>Notificación crítica directa al celular</li>
+                        <li>Prevención de robos e incidentes</li>
+                        <li>Integración con sirenas e iluminación</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20me%20interesan%20los%20Sensores%20de%20Seguridad%20y%20Emergencia." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-   <section id="final-cta">
-    <h2>Protege tus cuentas antes de que sea tarde</h2>
-    <a href="#contact" class="btn">Hablar con PrivadoYA</a>
-</section>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">06</div>
+                    <h3 class="service-title">Iluminación Inteligente LED</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Sustitución e integración de bombillos e interruptores inteligentes para control de intensidad, colores y horarios automatizados.</p>
+                    <ul class="service-list">
+                        <li>Automatización por zonas (Sala, Cuartos, Jardín)</li>
+                        <li>Ahorro energético y programación solar</li>
+                        <li>Control individual o por grupos</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20quiero%20cotizar%20Iluminaci%C3%B3n%20Inteligente%20LED." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-<section id="alcance">
-     <h2>Alcance</h2>
-     <div class="reach-grid">
-         <div class="reach-item">
-             <i class="fas fa-globe-americas"></i>
-             <h3>Atención para la comunidad hispanohablante en todo Estados Unidos</h3>
-         </div>
-         <div class="reach-item">
-             <i class="fas fa-laptop-house"></i>
-             <h3>Servicio completamente remoto</h3>
-         </div>
-     </div>
-</section>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">07</div>
+                    <h3 class="service-title">Cableado Estructurado Cat 6 OFC</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Despliegue físico con bobina Dahua 100% Cobre desde el módem principal hacia Smart TVs, consolas, PCs y Access Points.</p>
+                    <ul class="service-list">
+                        <li>Garantía de velocidad contratada</li>
+                        <li>Cero latencia en gaming y videollamadas</li>
+                        <li>Instalación estética e invisible</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20deseo%20cotizar%20Cableado%20Estructurado%20Cat%206%20100%25%20Cobre." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-<section id="contact">
-     <h2>Contacto</h2>
-     <p>¿Tienes preguntas? Escríbenos y te respondemos en minutos.</p>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">08</div>
+                    <h3 class="service-title">Blindaje Defensivo (Hardening)</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Cierre de vectores de ataque en el router módem del operador para evitar hackeos, intrusos vecinales y robo de datos.</p>
+                    <ul class="service-list">
+                        <li>Desactivación de WPS y UPnP</li>
+                        <li>Configuración DNS Shield (Cloudflare/Quad9)</li>
+                        <li>Eliminación de Doble NAT</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20quiero%20aplicar%20Hardening%20Defensivo%20en%20mi%20m%C3%B3dem." target="_blank" class="btn-secondary-glass service-btn">Cotizar por WhatsApp</a>
+            </div>
 
-     <form action="https://formspree.io/f/meeqnazk" method="POST">
-         <input type="text" name="name" placeholder="Tu nombre" required>
-         <input type="email" name="email" placeholder="Tu correo electrónico" required>
-         <input type="text" name="subject" placeholder="Asunto" required>
-         <textarea name="message" placeholder="Mensaje" rows="5" required></textarea>
-         <button type="submit" class="btn">Enviar Mensaje</button>
-     </form>
+            <div class="service-card">
+                <div>
+                    <div class="service-number">09</div>
+                    <h3 class="service-title">Visita Técnica & Diagnóstico</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem;">Inspección presencial para auditar la cobertura Wi-Fi, revisar muros de atenuación y diseñar un plan personalizado de domótica.</p>
+                    <ul class="service-list">
+                        <li>Escaneo de red y canales saturados</li>
+                        <li>Asesoría de compra de equipos</li>
+                        <li>Abono de la visita al adquirir el proyecto</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20deseo%20agendar%20una%20Visita%20T%C3%A9cnica%20Especializada." target="_blank" class="btn-primary-cyan service-btn" style="color: #000;">Agendar Visita Técnica</a>
+            </div>
 
-     <div class="contact-info">
-         <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/1234567890" target="_blank">+1 234 567 890</a></p>
-         <p><i class="fas fa-envelope"></i> Email: <a href="mailto:soporte@privadoya.com">soporte@privadoya.com</a></p>
-     </div>
-</section>
+        </div>
+    </section>
 
-<section id="founder">
-  <div class="container">
-    <div class="founder-content">
-      <img src="yo.png" alt="Sebastián Zuluaga" class="founder-image">
-      <div class="founder-text">
-        <h2>Quién está detrás de PrivadoYA</h2>
-        <h3>Jhon Sebastián Zuluaga</h3>
-        <p>Founder & Cybersecurity Specialist</p>
-        <p>Especialista en ciberseguridad dedicado a proteger a la comunidad hispanohablante con servicios remotos confiables y personalizados.</p>
-        <a href="https://www.linkedin.com/in/sebaszulluaga/" target="_blank" class="btn">Ver LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- CALCULADORA DE SALUD DE RED Y DOMÓTICA -->
+    <section id="calculadora" class="section-padding" style="padding-top: 0;">
+        <div class="calc-wrapper">
+            <div class="section-header" style="margin-bottom: 36px; text-align: left;">
+                <span class="section-tag">Diagnóstico en Línea</span>
+                <h2 class="section-title" style="font-size: 2.2rem;">Evaluador de Inteligencia & Seguridad</h2>
+                <p class="section-desc">Responde 3 preguntas sencillas para conocer el estado actual de tu red y tus dispositivos.</p>
+            </div>
 
-<footer>
-     <div class="footer-content">
-         <div class="footer-section">
-             <h3>PrivadoYA</h3>
-             <p>Protección digital personal para la comunidad hispanohablante</p>
-         </div>
-         <div class="footer-section">
-             <h4>Enlaces</h4>
-             <ul>
-                 <li><a href="#services">Servicios</a></li>
-                 <li><a href="#about">Sobre Nosotros</a></li>
-                 <li><a href="#contact">Contacto</a></li>
-             </ul>
-         </div>
-         <div class="footer-section">
-             <h4>Políticas</h4>
-             <ul>
-                 <li><a href="privacy.html">Política de Privacidad</a></li>
-                 <li><a href="terms.html">Términos de Servicio</a></li>
-                 <li><a href="refund.html">Política de Reembolso</a></li>
-             </ul>
-         </div>
-         <div class="footer-section">
-             <h4>Síguenos</h4>
-             <div class="social-links">
-                 <a href="https://www.instagram.com/__privadoya/" target="_blank"><i class="fab fa-instagram"></i></a>
-                 <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                 <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-             </div>
-         </div>
-     </div>
-     <div class="footer-bottom">
-         <p>&copy; 2025 PrivadoYA — Todos los derechos reservados.By Zurzulu and Sebaszulluaga</p>
-         <p class="disclaimer">PrivadoYA ofrece servicios de asesoría, prevención y gestión de incidentes digitales. No se garantiza la recuperación de cuentas ni la eliminación total de contenido en todos los casos.</p>
-         <p class="disclaimer">PrivadoYA no está afiliado, respaldado ni asociado con Meta, WhatsApp, Instagram o Google.</p>
-     </div>
-</footer>
+            <div class="calc-grid">
+                <div class="calc-form">
+                    <div class="calc-group">
+                        <label>1. ¿Cómo están conectadas tus cámaras o equipos de domótica?</label>
+                        <select id="q1" class="calc-select" onchange="calculateRisk()">
+                            <option value="high">Directo al Wi-Fi del módem básico sin aislamiento</option>
+                            <option value="med">En un router propio con contraseña normal</option>
+                            <option value="low">En una Bóveda Digital (VLAN) totalmente aislada</option>
+                        </select>
+                    </div>
 
-<script src="https://assets.calendly.com/assets/external/widget.js"></script>
-<script src="script.js"></script>
+                    <div class="calc-group">
+                        <label>2. ¿Cómo se conectan tus Smart TVs, consolas o PC de trabajo?</label>
+                        <select id="q2" class="calc-select" onchange="calculateRisk()">
+                            <option value="high">100% Wi-Fi (sufro interferencias o microcortes)</option>
+                            <option value="med">Cables delgados o extensiones normales</option>
+                            <option value="low">Cableado rígido Dahua Cat 6 100% Cobre OFC</option>
+                        </select>
+                    </div>
 
+                    <div class="calc-group">
+                        <label>3. Estado del botón WPS y contraseñas del router:</label>
+                        <select id="q3" class="calc-select" onchange="calculateRisk()">
+                            <option value="high">Clave original de la etiqueta / Botón WPS activado</option>
+                            <option value="med">Clave cambiada / Mantiene funciones de fábrica</option>
+                            <option value="low">WPS desactivado / DNS Shield activo / Hardening completo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calc-result-box">
+                    <div class="score-circle" id="scoreCircle">
+                        <span class="score-num" id="scoreNum">35%</span>
+                    </div>
+                    <div id="scoreStatus" style="font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">Riesgo Alto</div>
+                    <p id="scoreAdvice" style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 24px;">
+                        Tus cámaras y red presentan alta vulnerabilidad a ciberataques y caídas de señal.
+                    </p>
+                    <a id="scoreCta" href="https://wa.me/573000000000?text=Hola,%20mi%20diagn%C3%B3stico%20dio%20Riesgo%20Alto.%20Quiero%20solucionarlo." target="_blank" class="btn-apple-pill" style="justify-content: center; width: 100%;">
+                        Solicitar Blindaje en WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANES Y PAQUETES (SIN PRECIOS - FINALIZACIÓN EN WHATSAPP) -->
+    <section id="planes" class="section-padding">
+        <div class="section-header">
+            <span class="section-tag">Proyectos a la Medida</span>
+            <h2 class="section-title">Soluciones integrales de instalación.</h2>
+            <p class="section-desc">Diseñamos tu proyecto paso a paso. Consulta por WhatsApp el alcance exacto para tu hogar.</p>
+        </div>
+
+        <div class="packages-grid">
+            <div class="package-card">
+                <div>
+                    <div class="package-title">Hardening & Confort</div>
+                    <div class="package-desc">Ideal para apartamentos que buscan seguridad en red y el inicio del hogar inteligente.</div>
+                    <ul class="package-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Hardening defensivo de router y DNS Shield</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Instalación de Cerradura Inteligente</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Controlador de Aire Acondicionado / TV</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Vinculación con Asistente de Voz</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20el%20paquete%20Hardening%20%26%20Confort." target="_blank" class="btn-secondary-glass" style="text-align: center;">Cotizar por WhatsApp</a>
+            </div>
+
+            <div class="package-card featured">
+                <div>
+                    <div class="package-title">CiberHogar Total</div>
+                    <div class="package-desc">El equilibrio perfecto entre domótica avanzada, cableado físico y ciberseguridad.</div>
+                    <ul class="package-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Bóveda Digital para Cámaras y Sensores</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Cableado Dahua Cat 6 100% Cobre OFC</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Automatización de Luces y Clima</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Escena personalizada "Noche de Cine"</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20el%20paquete%20CiberHogar%20Total." target="_blank" class="btn-primary-cyan" style="text-align: center;">Cotizar por WhatsApp</a>
+            </div>
+
+            <div class="package-card">
+                <div>
+                    <div class="package-title">Blindaje MESH & Bóveda</div>
+                    <div class="package-desc">Diseñado para casas de varios niveles que exigen máxima cobertura y privacidad absoluta.</div>
+                    <ul class="package-features">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Red MESH interconectada por Cable Cat 6</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Arquitectura Cero Doble NAT</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Red aislada para Invitados e IoT</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Soporte y auditoría post-instalación</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/573000000000?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20el%20paquete%20Blindaje%20MESH%20%26%20B%C3%B3veda." target="_blank" class="btn-secondary-glass" style="text-align: center;">Cotizar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="section-padding">
+        <div class="section-header">
+            <span class="section-tag">Resolución de Dudas</span>
+            <h2 class="section-title">Preguntas frecuentes.</h2>
+        </div>
+
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFaq(this)">
+                    <span>¿Qué es la "Bóveda Digital" y por qué protege mis cámaras?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-body">
+                    Es una técnica de aislamiento de red (VLAN / Subred Aislada) donde agrupamos tus cámaras de seguridad, cerraduras y sensores. Esto impide que un hacker en Internet pueda acceder al video de tus cámaras o que un dispositivo domótico comprometido infecte tus teléfonos o computadores personales.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFaq(this)">
+                    <span>¿Debo comprar yo los dispositivos o ustedes los suministran?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-body">
+                    Brindamos flexibilidad total. Podemos asesorarte para que compres los equipos ideales al mejor precio del mercado, o podemos encargarnos del suministro, montaje, ponchado y configuración integral.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-header" onclick="toggleFaq(this)">
+                    <span>¿Por qué es superior el cable Dahua Cat 6 100% Cobre (OFC)?</span>
+                    <span class="faq-icon">▼</span>
+                </button>
+                <div class="faq-body">
+                    El cable de cobre puro no se sulfata con la humedad, transmite energía y datos con cero pérdida de paquetes y ofrece la durabilidad necesaria para mantener streaming 4K, domótica instantánea y juegos online sin caídas de señal.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="apple-footer">
+        <div class="footer-container">
+            <div class="footer-legal">
+                * Privado Ya se especializa en la instalación física, configuración lógica, automatización de domótica y blindaje defensivo residencial. Garantizamos la máxima confidencialidad y rendimiento de tu infraestructura local bajo estándares vigentes de ciberseguridad.
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h5>Privado Ya</h5>
+                    <ul>
+                        <li><a href="#nosotros">Quiénes Somos</a></li>
+                        <li><a href="#nosotros">Misión & Visión</a></li>
+                        <li><a href="#diferenciales">Por qué Privado Ya</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Domótica & Redes</h5>
+                    <ul>
+                        <li><a href="#servicios">Cerraduras Inteligentes</a></li>
+                        <li><a href="#servicios">Bóveda Digital Cámaras</a></li>
+                        <li><a href="#servicios">Aires & Iluminación</a></li>
+                        <li><a href="#servicios">Cableado Cat 6 OFC</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Ciberseguridad</h5>
+                    <ul>
+                        <li>Norma T568B</li>
+                        <li>Cloudflare Threat Shield</li>
+                        <li>Hardening de Routers</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contacto Directo</h5>
+                    <ul>
+                        <li><a href="https://wa.me/573000000000" target="_blank">Atención inmediata por WhatsApp</a></li>
+                        <li>Domótica & Ciberseguridad</li>
+                        <li>Cali & Colombia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>Copyright &copy; 2026 Privado Ya. Todos los derechos reservados.</div>
+                <div>Tu casa, más inteligente y segura que nunca.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVIDAD JS -->
+    <script>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        function calculateRisk() {
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const q3 = document.getElementById('q3').value;
+
+            let score = 100;
+
+            if (q1 === 'high') score -= 35;
+            if (q1 === 'med') score -= 15;
+
+            if (q2 === 'high') score -= 30;
+            if (q2 === 'med') score -= 15;
+
+            if (q3 === 'high') score -= 35;
+            if (q3 === 'med') score -= 20;
+
+            const scoreCircle = document.getElementById('scoreCircle');
+            const scoreNum = document.getElementById('scoreNum');
+            const scoreStatus = document.getElementById('scoreStatus');
+            const scoreAdvice = document.getElementById('scoreAdvice');
+
+            scoreNum.innerText = score + '%';
+
+            if (score >= 80) {
+                scoreCircle.style.borderColor = 'var(--accent-green)';
+                scoreStatus.innerText = 'Excelente / Hogar Blindado';
+                scoreStatus.style.color = 'var(--accent-green)';
+                scoreAdvice.innerText = 'Tu hogar cuenta con aislamiento de domótica y velocidad optimizada.';
+            } else if (score >= 50) {
+                scoreCircle.style.borderColor = 'var(--accent-cyan)';
+                scoreStatus.innerText = 'Riesgo Moderado';
+                scoreStatus.style.color = 'var(--accent-cyan)';
+                scoreAdvice.innerText = 'Existen puntos vulnerables en la privacidad de tus cámaras e inestabilidad Wi-Fi.';
+            } else {
+                scoreCircle.style.borderColor = 'var(--accent-red)';
+                scoreStatus.innerText = 'Riesgo Alto / Inseguro';
+                scoreStatus.style.color = 'var(--accent-red)';
+                scoreAdvice.innerText = 'Tus cámaras y dispositivos domóticos están expuestos y tu Wi-Fi presenta cuellos de botella.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateRisk);
+    </script>
 </body>
 </html>
